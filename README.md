@@ -6,6 +6,59 @@ A ROS2-based simulation workspace for an industrial SCARA robot, including a con
 
 **ROS2 Humble Hawksbill** (Ubuntu 22.04 LTS)
 
+---
+
+## Installation (Ubuntu 22.04 + ROS2 Humble)
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/maxrec1/ros2-industrial-robot-simulation-new.git
+cd ros2-industrial-robot-simulation-new
+```
+
+### 2. Install system dependencies
+
+```bash
+sudo apt update && sudo apt install -y \
+  ros-humble-gazebo-ros-pkgs \
+  ros-humble-joint-state-publisher \
+  ros-humble-joint-state-publisher-gui \
+  ros-humble-robot-state-publisher \
+  ros-humble-moveit \
+  ros-humble-moveit-ros-move-group \
+  ros-humble-moveit-kinematics \
+  ros-humble-moveit-planners \
+  ros-humble-moveit-simple-controller-manager \
+  ros-humble-xacro \
+  ros-humble-tf2-ros \
+  python3-colcon-common-extensions \
+  python3-rosdep
+```
+
+### 3. Initialize rosdep (skip if already done)
+
+```bash
+sudo rosdep init
+rosdep update
+```
+
+### 4. Install remaining ROS dependencies
+
+```bash
+source /opt/ros/humble/setup.bash
+rosdep install --from-paths src --ignore-src -r -y
+```
+
+### 5. Build
+
+```bash
+colcon build
+source install/setup.bash
+```
+
+---
+
 ## Packages
 
 ### `scara_robot_pkg`
@@ -23,22 +76,6 @@ Gazebo conveyor belt simulation plugin, split into three sub-packages:
 - **`conveyorbelt_msgs`** — Custom ROS2 service/message definitions for controlling the belt
 - **`conveyorbelt_gazebo`** — Gazebo plugin implementation
 - **`ros2_conveyorbelt`** — ROS2 integration node and launch files
-
-## Dependencies
-
-```bash
-sudo apt install ros-humble-gazebo-ros-pkgs \
-                 ros-humble-joint-state-publisher-gui \
-                 ros-humble-robot-state-publisher
-```
-
-## Build
-
-```bash
-source /opt/ros/humble/setup.bash
-colcon build
-source install/setup.bash
-```
 
 ## Running the Simulation
 
