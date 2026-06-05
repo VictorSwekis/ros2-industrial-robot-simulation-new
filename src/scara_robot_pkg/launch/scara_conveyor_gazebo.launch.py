@@ -33,6 +33,33 @@ def generate_launch_description():
     # ── Package paths ──────────────────────────────────────────────────────────
     scara_pkg   = get_package_share_directory('scara_robot_pkg')
     belt_pkg    = get_package_share_directory('conveyorbelt_gazebo')
+    bobby_pkg = get_package_share_directory('bobby')
+
+    # ── Process Bobby URDF → replace package:// URIs with file:// paths ───────
+    bobby_urdf_path = os.path.join(bobby_pkg, 'urdf', 'bobby.urdf')
+    with open(bobby_urdf_path, 'r', encoding='utf-8') as f:
+        bobby_description_raw = f.read()
+    # Strip XML declaration — lxml rejects Unicode strings with encoding declarations
+    if bobby_description_raw.startswith('<?xml'):
+        bobby_description_raw = bobby_description_raw[bobby_description_raw.index('?>') + 2:].lstrip()
+    bobby_description_raw = bobby_description_raw.replace(
+        'package://bobby/', f'file://{bobby_pkg}/'
+    )
+    # Rename Bobby links with bobby_ prefix to avoid TF conflicts with SCARA's base_link etc.
+    for link in ['base_link', 'link_1', 'link_2', 'link_3', 'link_4',
+                 'link_5', 'link_6', 'link_7', 'link_8', 'TCP']:
+        bobby_description_raw = bobby_description_raw.replace(
+            f'name="{link}"', f'name="bobby_{link}"'
+        )
+        bobby_description_raw = bobby_description_raw.replace(
+            f'link="{link}"', f'link="bobby_{link}"'
+        )
+    # Make Bobby static in Gazebo so it doesn't fall under gravity
+    bobby_description_raw = bobby_description_raw.replace(
+        '</robot>',
+        '  <gazebo><static>true</static></gazebo>\n</robot>'
+    )
+    
 
     # ── Process SCARA xacro → robot_description ───────────────────────────────
     scara_xacro_file = os.path.join(scara_pkg, 'urdf', 'scara_gazebo.urdf.xacro')
@@ -149,13 +176,81 @@ def generate_launch_description():
         )
     )
 
+    # ── Bobby Joint State Publisher (zero positions for all Bobby joints) ─────
+    bobby_joint_state_publisher = Node(
+        package='joint_state_publisher',
+        executable='joint_state_publisher',
+        name='bobby_joint_state_publisher',
+        parameters=[{'robot_description': bobby_description_raw}],
+        remappings=[
+            ('/robot_description', '/bobby_description'),
+            ('/joint_states', '/bobby_joint_states'),
+        ],
+        output='screen',
+    )
+
+    # ── Bobby Robot State Publisher (on separate topic) ──────────────────────
+    bobby_state_publisher = Node(
+        package='robot_state_publisher',
+        executable='robot_state_publisher',
+        name='bobby_state_publisher',
+        parameters=[{'robot_description': bobby_description_raw}],
+        remappings=[
+            ('/robot_description', '/bobby_description'),
+            ('/joint_states', '/bobby_joint_states'),
+        ],
+        output='screen',
+    )
+
+    # ── Static TF: world → bobby_base_link (places Bobby in RViz at pedestal top) ──
+    bobby_world_tf = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        name='bobby_world_tf',
+        arguments=['0', '1.5', '0.8', '0', '0', '0', 'world', 'bobby_base_link'],
+        output='screen',
+    )
+
+    # ── Spawn Bobby pedestal ──────────────────────────────────────────────────
+    spawn_bobby_pedestal = Node(
+        package='gazebo_ros',
+        executable='spawn_entity.py',
+        arguments=[
+            '-file', pedestal_urdf,
+            '-entity', 'bobby_pedestal',
+            '-x', '0.0',
+            '-y', '1.5',
+            '-z', '0.0',
+        ],
+        output='screen',
+    )
+
+    # ── Spawn Bobby robot (on top of pedestal at z=0.8) ───────────────────────
+    spawn_bobby = Node(
+        package='gazebo_ros',
+        executable='spawn_entity.py',
+        arguments=[
+            '-topic', '/bobby_description',
+            '-entity', 'bobby',
+            '-x', '0.0',
+            '-y', '1.5',
+            '-z', '0.8',
+        ],
+        output='screen',
+    )
+
     return LaunchDescription([
         launch_rviz_arg,
         gazebo_model_path,
         gazebo,
         robot_state_publisher,
+        bobby_joint_state_publisher,
+        bobby_state_publisher,
+        bobby_world_tf,
         spawn_pedestal,
         spawn_scara,
+        spawn_bobby_pedestal,
+        spawn_bobby,
         spawn_controllers,
         rviz_node,
     ])

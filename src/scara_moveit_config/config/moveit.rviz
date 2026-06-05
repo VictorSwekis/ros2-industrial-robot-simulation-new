@@ -23,6 +23,8 @@ Visualization Manager:
       Robot Description: robot_description
       Scene Geometry:
         Scene Alpha: 1
+        Show World Geometry: true
+        Show Object Colors: true
       Scene Robot:
         Robot Alpha: 0.5
       Value: true

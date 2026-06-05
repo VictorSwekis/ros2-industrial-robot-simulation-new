@@ -40,7 +40,7 @@ def generate_launch_description():
         package="moveit_ros_move_group",
         executable="move_group",
         output="screen",
-        parameters=[moveit_config.to_dict()],
+        parameters=[moveit_config.to_dict(), {"use_sim_time": True}],
         arguments=["--ros-args", "--log-level", "info"],
     )
 
@@ -62,6 +62,7 @@ def generate_launch_description():
             moveit_config.robot_description_semantic,
             moveit_config.planning_pipelines,
             moveit_config.robot_description_kinematics,
+            {"use_sim_time": True},
         ],
         condition=UnlessCondition(tutorial_mode),
     )
@@ -76,6 +77,7 @@ def generate_launch_description():
             moveit_config.robot_description_semantic,
             moveit_config.planning_pipelines,
             moveit_config.robot_description_kinematics,
+            {"use_sim_time": True},
         ],
         condition=IfCondition(tutorial_mode),
     )
@@ -87,6 +89,7 @@ def generate_launch_description():
         name="static_transform_publisher",
         output="log",
         arguments=["-1.0", "0.0", "0.8", "0.0", "0.0", "0.0", "world", "base_link"],
+        parameters=[{"use_sim_time": True}],
         condition=UnlessCondition(use_gazebo_controllers),
     )
 
@@ -96,7 +99,7 @@ def generate_launch_description():
         executable="robot_state_publisher",
         name="robot_state_publisher",
         output="both",
-        parameters=[moveit_config.robot_description],
+        parameters=[moveit_config.robot_description, {"use_sim_time": True}],
         condition=UnlessCondition(use_gazebo_controllers),
     )
 
