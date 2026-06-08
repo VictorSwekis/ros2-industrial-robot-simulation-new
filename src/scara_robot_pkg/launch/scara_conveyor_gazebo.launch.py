@@ -211,6 +211,26 @@ def generate_launch_description():
         output='screen',
     )
 
+    # ── Static TFs for sonar sensor frames ────────────────────────────────────
+    # Belt1: at world origin, sensor at y=+0.6, z=0.791 (5cm above belt), pointing down
+    belt1_sonar_tf = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        name='belt1_sonar_tf',
+        arguments=['0', '0.6', '0.791', '0', '1.5708', '0', 'world', 'belt1_sonar_link'],
+        output='screen',
+    )
+
+    # Belt2: placed at (-1,-1,0) yaw=-π/2; sensor local (0,+0.30,0.791) maps to
+    # world x=-1+0.30=-0.70, y=-1.0, z=0.791. Combined orientation: yaw=-π/2, pitch=π/2.
+    belt2_sonar_tf = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        name='belt2_sonar_tf',
+        arguments=['-0.70', '-1.0', '0.791', '-1.5708', '1.5708', '0', 'world', 'belt2_sonar_link'],
+        output='screen',
+    )
+
     # ── Spawn Bobby pedestal ──────────────────────────────────────────────────
     spawn_bobby_pedestal = Node(
         package='gazebo_ros',
@@ -247,6 +267,8 @@ def generate_launch_description():
         bobby_joint_state_publisher,
         bobby_state_publisher,
         bobby_world_tf,
+        belt1_sonar_tf,
+        belt2_sonar_tf,
         spawn_pedestal,
         spawn_scara,
         spawn_bobby_pedestal,

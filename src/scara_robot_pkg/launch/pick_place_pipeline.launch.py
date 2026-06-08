@@ -54,6 +54,17 @@ def generate_launch_description():
         ],
     )
 
+    sonar_belt_stopper = TimerAction(
+        period=10.0,
+        actions=[
+            Node(
+                package='scara_robot_pkg',
+                executable='sonar_belt_stopper',
+                output='screen',
+            )
+        ],
+    )
+
     pick_place_config = os.path.join(scara_pkg, 'config', 'pick_place_joints.yaml')
     pick_place_cycle = TimerAction(
         period=14.0,
@@ -105,6 +116,7 @@ def generate_launch_description():
         gazebo_launch,
         moveit_launch,
         scene_publisher,
+        sonar_belt_stopper,
         pick_place_cycle,
         spawn_pcb,
         spawn_chip,
