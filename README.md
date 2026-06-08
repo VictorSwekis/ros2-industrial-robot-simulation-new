@@ -53,6 +53,7 @@ rosdep install --from-paths src --ignore-src -r -y
 ### 5. Build
 
 ```bash
+source /opt/ros/humble/setup.bash
 colcon build
 source install/setup.bash
 ```
