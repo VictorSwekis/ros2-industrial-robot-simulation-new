@@ -13,6 +13,7 @@ from control_msgs.action import FollowJointTrajectory
 from trajectory_msgs.msg import JointTrajectoryPoint
 from conveyorbelt_msgs.srv import ConveyorBeltControl
 from std_msgs.msg import Bool
+from linkattacher_msgs.srv import AttachLink, DetachLink
 
 
 class PickPlaceCycle(Node):
@@ -35,6 +36,8 @@ class PickPlaceCycle(Node):
         self._traj_client = ActionClient(self, FollowJointTrajectory, self._action_name)
         self._belt1_client = self.create_client(ConveyorBeltControl, self._belt1_name)
         self._belt2_client = self.create_client(ConveyorBeltControl, self._belt2_name)
+        self._attach_client = self.create_client(AttachLink, '/ATTACHLINK')
+        self._detach_client = self.create_client(DetachLink, '/DETACHLINK')
 
         # Flag set by sonar stopper when belt2 object is in position
         self._belt2_object_ready: bool = False
@@ -63,6 +66,8 @@ class PickPlaceCycle(Node):
         for client, name in [
             (self._belt1_client, self._belt1_name),
             (self._belt2_client, self._belt2_name),
+            (self._attach_client, '/ATTACHLINK'),
+            (self._detach_client, '/DETACHLINK'),
         ]:
             if not client.wait_for_service(timeout_sec=10.0):
                 raise RuntimeError(f'Service not available: {name}')
@@ -122,6 +127,26 @@ class PickPlaceCycle(Node):
         if result.error_code != 0:
             raise RuntimeError(f'Stage {stage_name} failed with error code {result.error_code}')
 
+    def _attach_chip(self) -> None:
+        req = AttachLink.Request()
+        req.model1_name = 'scara_robot'
+        req.link1_name = 'Link_4'
+        req.model2_name = 'chip1'
+        req.link2_name = 'base_link_chip'
+        future = self._attach_client.call_async(req)
+        rclpy.spin_until_future_complete(self, future, timeout_sec=5.0)
+        self.get_logger().info('Chip ATTACHED to Link_4')
+
+    def _detach_chip(self) -> None:
+        req = DetachLink.Request()
+        req.model1_name = 'scara_robot'
+        req.link1_name = 'Link_4'
+        req.model2_name = 'chip1'
+        req.link2_name = 'base_link_chip'
+        future = self._detach_client.call_async(req)
+        rclpy.spin_until_future_complete(self, future, timeout_sec=5.0)
+        self.get_logger().info('Chip DETACHED from Link_4')
+
     def _wait_for_belt2_object(self) -> None:
         """Spin until sonar_belt_stopper publishes object_ready on belt2."""
         self.get_logger().info('Waiting for object on belt2 sonar...')
@@ -145,9 +170,20 @@ class PickPlaceCycle(Node):
             self._wait_for_belt2_object()
 
             # Execute pick-place arm sequence
-            for stage_name in ['pre_pick', 'pick', 'lift', 'pre_place', 'place', 'retreat']:
-                self._send_joint_stage(stage_name)
-                time.sleep(0.2)
+            self._send_joint_stage('pre_pick')
+            time.sleep(0.2)
+            self._send_joint_stage('pick')
+            time.sleep(0.2)
+            self._attach_chip()                   # grip chip after pick
+            self._send_joint_stage('lift')
+            time.sleep(0.2)
+            self._send_joint_stage('pre_place')
+            time.sleep(0.2)
+            self._send_joint_stage('place')
+            time.sleep(0.2)
+            self._detach_chip()                   # release chip after place
+            self._send_joint_stage('retreat')
+            time.sleep(0.2)
 
             self.get_logger().info(f'=== Cycle {cycle} complete ===')
 
