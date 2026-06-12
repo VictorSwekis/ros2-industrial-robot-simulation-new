@@ -135,3 +135,8 @@ ros2 service call /belt2/CONVEYORPOWER conveyorbelt_msgs/srv/ConveyorBeltControl
 # Stop
 ros2 service call /belt2/CONVEYORPOWER conveyorbelt_msgs/srv/ConveyorBeltControl "{power: 0.0}"
 ```
+## Graphify
+```
+cd /home/maxrec/projects/test/ros2-industrial-robot-simulation/graphify-out
+python3 -m http.server 8080
+```

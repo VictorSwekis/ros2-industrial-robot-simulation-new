@@ -32,10 +32,10 @@
         <joint name="Joint_4" value="0.3027"/>
     </group_state>
     <group_state name="pick" group="arm">
-        <joint name="Joint_1" value="0.7283315080791395"/>
-        <joint name="Joint_2" value="-1.1743202285032028"/>
-        <joint name="Joint_3" value="-0.37985171323057204"/>
-        <joint name="Joint_4" value="0.3027"/>
+        <joint name="Joint_1" value="0.7330382858376184"/>
+        <joint name="Joint_2" value="-1.1693705988362009"/>
+        <joint name="Joint_3" value="-0.388"/>
+        <joint name="Joint_4" value="-5.969026041820607"/>
     </group_state>
     <group_state name="lift" group="arm">
         <joint name="Joint_1" value="0.25"/>
@@ -52,7 +52,7 @@
     <group_state name="place" group="arm">
         <joint name="Joint_1" value="0.030360038537413203"/>
         <joint name="Joint_2" value="-0.9186182175500379"/>
-        <joint name="Joint_3" value="-0.3746435637397818"/>
+        <joint name="Joint_3" value="-0.36"/>
         <joint name="Joint_4" value="-0.6512092675774661"/>
     </group_state>
     <group_state name="retreat" group="arm">

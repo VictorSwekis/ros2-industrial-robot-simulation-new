@@ -93,6 +93,8 @@ def generate_launch_description():
                 package='scara_robot_pkg',
                 executable='pick_place_cycle',
                 output='screen',
+                # Temporary disable: keep sonar active but hide belt2 ready event from this node.
+                #remappings=[('belt2/object_ready', 'belt2/object_ready_disabled')],
                 parameters=[{'config_path': pick_place_config}],
             )
         ],
