@@ -1,0 +1,209 @@
+[INFO] [launch]: All log files can be found below /root/.ros/log/2026-06-22-21-37-15-655355-Schiff-4030
+[INFO] [launch]: Default logging verbosity is set to INFO
+WARNING:root:[33;21mCannot infer URDF from `/ros2_ws/install/scara_robot_pkg/share/scara_robot_pkg`. -- using config/combined_cell.urdf[0m
+WARNING:root:[33;21mCannot infer SRDF from `/ros2_ws/install/scara_robot_pkg/share/scara_robot_pkg`. -- using config/combined_cell.srdf[0m
+WARNING:root:[33;21mCannot infer URDF from `/ros2_ws/install/scara_robot_pkg/share/scara_robot_pkg`. -- using config/combined_cell.urdf[0m
+WARNING:root:[33;21mCannot infer SRDF from `/ros2_ws/install/scara_robot_pkg/share/scara_robot_pkg`. -- using config/combined_cell.srdf[0m
+[INFO] [gzserver-1]: process started with pid [4031]
+[INFO] [gzclient-2]: process started with pid [4033]
+[INFO] [robot_state_publisher-3]: process started with pid [4035]
+[INFO] [static_transform_publisher-4]: process started with pid [4037]
+[INFO] [static_transform_publisher-5]: process started with pid [4039]
+[INFO] [spawn_entity.py-6]: process started with pid [4041]
+[INFO] [spawn_entity.py-7]: process started with pid [4043]
+[INFO] [spawn_entity.py-8]: process started with pid [4045]
+[INFO] [spawn_entity.py-9]: process started with pid [4047]
+[INFO] [move_group-10]: process started with pid [4049]
+[static_transform_publisher-4] [WARN] [1782164236.193466432] []: Old-style arguments are deprecated; see --help for new-style arguments
+[static_transform_publisher-5] [WARN] [1782164236.198457419] []: Old-style arguments are deprecated; see --help for new-style arguments
+[static_transform_publisher-4] [INFO] [1782164236.206846420] [belt1_sonar_tf]: Spinning until stopped - publishing transform
+[static_transform_publisher-4] translation: ('0.000000', '0.600000', '0.791000')
+[static_transform_publisher-4] rotation: ('0.000000', '0.707108', '0.000000', '0.707105')
+[static_transform_publisher-4] from 'world' to 'belt1_sonar_link'
+[static_transform_publisher-5] [INFO] [1782164236.208033146] [belt2_sonar_tf]: Spinning until stopped - publishing transform
+[static_transform_publisher-5] translation: ('-0.700000', '-1.000000', '0.791000')
+[static_transform_publisher-5] rotation: ('0.500002', '0.500000', '-0.500000', '0.499998')
+[static_transform_publisher-5] from 'world' to 'belt2_sonar_link'
+[robot_state_publisher-3] [INFO] [1782164236.247917003] [robot_state_publisher]: got segment Link_1
+[robot_state_publisher-3] [INFO] [1782164236.248113500] [robot_state_publisher]: got segment Link_2
+[robot_state_publisher-3] [INFO] [1782164236.248122887] [robot_state_publisher]: got segment Link_3
+[robot_state_publisher-3] [INFO] [1782164236.248128848] [robot_state_publisher]: got segment Link_4
+[robot_state_publisher-3] [INFO] [1782164236.248133537] [robot_state_publisher]: got segment base_link
+[robot_state_publisher-3] [INFO] [1782164236.248138256] [robot_state_publisher]: got segment bobby_TCP
+[robot_state_publisher-3] [INFO] [1782164236.248142834] [robot_state_publisher]: got segment bobby_base_link
+[robot_state_publisher-3] [INFO] [1782164236.248147473] [robot_state_publisher]: got segment bobby_finger_left
+[robot_state_publisher-3] [INFO] [1782164236.248151962] [robot_state_publisher]: got segment bobby_finger_right
+[robot_state_publisher-3] [INFO] [1782164236.248156169] [robot_state_publisher]: got segment bobby_gripper_base
+[robot_state_publisher-3] [INFO] [1782164236.248160407] [robot_state_publisher]: got segment bobby_gripper_flange
+[robot_state_publisher-3] [INFO] [1782164236.248165026] [robot_state_publisher]: got segment bobby_link_1
+[robot_state_publisher-3] [INFO] [1782164236.248169344] [robot_state_publisher]: got segment bobby_link_2
+[robot_state_publisher-3] [INFO] [1782164236.248173682] [robot_state_publisher]: got segment bobby_link_3
+[robot_state_publisher-3] [INFO] [1782164236.248178050] [robot_state_publisher]: got segment bobby_link_4
+[robot_state_publisher-3] [INFO] [1782164236.248182248] [robot_state_publisher]: got segment bobby_link_5
+[robot_state_publisher-3] [INFO] [1782164236.248186266] [robot_state_publisher]: got segment bobby_link_6
+[robot_state_publisher-3] [INFO] [1782164236.248190303] [robot_state_publisher]: got segment world
+[move_group-10] [INFO] [1782164236.251600289] [moveit_rdf_loader.rdf_loader]: Loaded robot model in 0 seconds
+[move_group-10] [INFO] [1782164236.251686670] [moveit_robot_model.robot_model]: Loading robot model 'combined_cell'...
+[move_group-10] [INFO] [1782164236.251695817] [moveit_robot_model.robot_model]: No root/virtual joint specified in SRDF. Assuming fixed joint
+[move_group-10] [INFO] [1782164236.270415504] [moveit_cached_ik_kinematics_plugin.cached_ik_kinematics_plugin]: cache file /ros2_ws/combined_cellscara_arm_base_linkLink_4_5000_1.000000_1.000000.ikcache initialized!
+[move_group-10] [INFO] [1782164236.327694736] [moveit_ros.planning_scene_monitor.planning_scene_monitor]: Publishing maintained planning scene on 'monitored_planning_scene'
+[move_group-10] [INFO] [1782164236.327978526] [moveit.ros_planning_interface.moveit_cpp]: Listening to 'joint_states' for joint states
+[move_group-10] [INFO] [1782164236.328914403] [moveit_ros.current_state_monitor]: Listening to joint states on topic 'joint_states'
+[move_group-10] [INFO] [1782164236.329426198] [moveit_ros.planning_scene_monitor.planning_scene_monitor]: Listening to '/attached_collision_object' for attached collision objects
+[move_group-10] [INFO] [1782164236.329460262] [moveit_ros.planning_scene_monitor.planning_scene_monitor]: Starting planning scene monitor
+[move_group-10] [INFO] [1782164236.329812680] [moveit_ros.planning_scene_monitor.planning_scene_monitor]: Listening to '/planning_scene'
+[move_group-10] [INFO] [1782164236.329828860] [moveit_ros.planning_scene_monitor.planning_scene_monitor]: Starting world geometry update monitor for collision objects, attached objects, octomap updates.
+[move_group-10] [INFO] [1782164236.330044833] [moveit_ros.planning_scene_monitor.planning_scene_monitor]: Listening to 'collision_object'
+[move_group-10] [INFO] [1782164236.330228456] [moveit_ros.planning_scene_monitor.planning_scene_monitor]: Listening to 'planning_scene_world' for planning scene world geometry
+[move_group-10] [WARN] [1782164236.330518547] [moveit.ros.occupancy_map_monitor.middleware_handle]: Resolution not specified for Octomap. Assuming resolution = 0.1 instead
+[move_group-10] [ERROR] [1782164236.330533455] [moveit.ros.occupancy_map_monitor.middleware_handle]: No 3D sensor plugin(s) defined for octomap updates
+[move_group-10] [INFO] [1782164236.337435651] [moveit.ros_planning_interface.moveit_cpp]: Loading planning pipeline 'ompl'
+[move_group-10] [INFO] [1782164236.346385228] [moveit.ros_planning.planning_pipeline]: Using planning interface 'OMPL'
+[move_group-10] [INFO] [1782164236.348454411] [moveit_ros.add_time_optimal_parameterization]: Param 'ompl.path_tolerance' was not set. Using default value: 0.100000
+[move_group-10] [INFO] [1782164236.348482103] [moveit_ros.add_time_optimal_parameterization]: Param 'ompl.resample_dt' was not set. Using default value: 0.100000
+[move_group-10] [INFO] [1782164236.348486811] [moveit_ros.add_time_optimal_parameterization]: Param 'ompl.min_angle_change' was not set. Using default value: 0.001000
+[move_group-10] [INFO] [1782164236.348510476] [moveit_ros.fix_workspace_bounds]: Param 'ompl.default_workspace_bounds' was not set. Using default value: 10.000000
+[move_group-10] [INFO] [1782164236.348526085] [moveit_ros.fix_start_state_bounds]: Param 'ompl.start_state_max_bounds_error' was set to 0.100000
+[move_group-10] [INFO] [1782164236.348532647] [moveit_ros.fix_start_state_bounds]: Param 'ompl.start_state_max_dt' was not set. Using default value: 0.500000
+[move_group-10] [INFO] [1782164236.348544559] [moveit_ros.fix_start_state_collision]: Param 'ompl.start_state_max_dt' was not set. Using default value: 0.500000
+[move_group-10] [INFO] [1782164236.348549178] [moveit_ros.fix_start_state_collision]: Param 'ompl.jiggle_fraction' was not set. Using default value: 0.020000
+[move_group-10] [INFO] [1782164236.348553346] [moveit_ros.fix_start_state_collision]: Param 'ompl.max_sampling_attempts' was not set. Using default value: 100
+[move_group-10] [INFO] [1782164236.348561461] [moveit.ros_planning.planning_pipeline]: Using planning request adapter 'Add Time Optimal Parameterization'
+[move_group-10] [INFO] [1782164236.348564837] [moveit.ros_planning.planning_pipeline]: Using planning request adapter 'Resolve constraint frames to robot links'
+[move_group-10] [INFO] [1782164236.348567212] [moveit.ros_planning.planning_pipeline]: Using planning request adapter 'Fix Workspace Bounds'
+[move_group-10] [INFO] [1782164236.348569556] [moveit.ros_planning.planning_pipeline]: Using planning request adapter 'Fix Start State Bounds'
+[move_group-10] [INFO] [1782164236.348571620] [moveit.ros_planning.planning_pipeline]: Using planning request adapter 'Fix Start State In Collision'
+[move_group-10] [INFO] [1782164236.348573794] [moveit.ros_planning.planning_pipeline]: Using planning request adapter 'Fix Start State Path Constraints'
+[move_group-10] [INFO] [1782164236.362582466] [moveit.plugins.moveit_simple_controller_manager]: Added FollowJointTrajectory controller for arm_trajectory_controller
+[move_group-10] [INFO] [1782164236.363329090] [moveit.plugins.moveit_simple_controller_manager]: Added FollowJointTrajectory controller for bobby_arm_controller
+[move_group-10] [INFO] [1782164236.364007116] [moveit.plugins.moveit_simple_controller_manager]: Added FollowJointTrajectory controller for bobby_gripper_controller
+[move_group-10] [INFO] [1782164236.364133632] [moveit.plugins.moveit_simple_controller_manager]: Returned 3 controllers in list
+[move_group-10] [INFO] [1782164236.364152487] [moveit.plugins.moveit_simple_controller_manager]: Returned 3 controllers in list
+[move_group-10] [INFO] [1782164236.364539650] [moveit_ros.trajectory_execution_manager]: Trajectory execution is managing controllers
+[move_group-10] [INFO] [1782164236.364556692] [move_group.move_group]: MoveGroup debug mode is ON
+[move_group-10] [INFO] [1782164236.372695165] [move_group.move_group]: 
+[move_group-10] 
+[move_group-10] ********************************************************
+[move_group-10] * MoveGroup using: 
+[move_group-10] *     - ApplyPlanningSceneService
+[move_group-10] *     - ClearOctomapService
+[move_group-10] *     - CartesianPathService
+[move_group-10] *     - ExecuteTrajectoryAction
+[move_group-10] *     - GetPlanningSceneService
+[move_group-10] *     - KinematicsService
+[move_group-10] *     - MoveAction
+[move_group-10] *     - MotionPlanService
+[move_group-10] *     - QueryPlannersService
+[move_group-10] *     - StateValidationService
+[move_group-10] ********************************************************
+[move_group-10] 
+[move_group-10] [INFO] [1782164236.372732565] [moveit_move_group_capabilities_base.move_group_context]: MoveGroup context using planning plugin ompl_interface/OMPLPlanner
+[move_group-10] [INFO] [1782164236.372741051] [moveit_move_group_capabilities_base.move_group_context]: MoveGroup context initialization complete
+[move_group-10] [96mLoading 'move_group/ApplyPlanningSceneService'...
+[move_group-10] [0m[96mLoading 'move_group/ClearOctomapService'...
+[move_group-10] [0m[96mLoading 'move_group/MoveGroupCartesianPathService'...
+[move_group-10] [0m[96mLoading 'move_group/MoveGroupExecuteTrajectoryAction'...
+[move_group-10] [0m[96mLoading 'move_group/MoveGroupGetPlanningSceneService'...
+[move_group-10] [0m[96mLoading 'move_group/MoveGroupKinematicsService'...
+[move_group-10] [0m[96mLoading 'move_group/MoveGroupMoveAction'...
+[move_group-10] [0m[96mLoading 'move_group/MoveGroupPlanService'...
+[move_group-10] [0m[96mLoading 'move_group/MoveGroupQueryPlannersService'...
+[move_group-10] [0m[96mLoading 'move_group/MoveGroupStateValidationService'...
+[move_group-10] [0m[92m
+[move_group-10] You can start planning now!
+[move_group-10] 
+[spawn_entity.py-8] [INFO] [1782164236.511795204] [spawn_entity]: Spawn Entity started
+[spawn_entity.py-8] [INFO] [1782164236.512174712] [spawn_entity]: Loading entity XML from file /ros2_ws/install/scara_robot_pkg/share/scara_robot_pkg/urdf/drop_box.urdf
+[spawn_entity.py-6] [INFO] [1782164236.512488037] [spawn_entity]: Spawn Entity started
+[spawn_entity.py-8] [INFO] [1782164236.512762950] [spawn_entity]: Waiting for service /spawn_entity, timeout = 120
+[spawn_entity.py-6] [INFO] [1782164236.512812062] [spawn_entity]: Loading entity XML from file /ros2_ws/install/scara_robot_pkg/share/scara_robot_pkg/urdf/pedestal.urdf
+[spawn_entity.py-8] [INFO] [1782164236.513020832] [spawn_entity]: Waiting for service /spawn_entity
+[spawn_entity.py-6] [INFO] [1782164236.513277641] [spawn_entity]: Waiting for service /spawn_entity, timeout = 120
+[spawn_entity.py-6] [INFO] [1782164236.513546914] [spawn_entity]: Waiting for service /spawn_entity
+[spawn_entity.py-9] [INFO] [1782164236.519022185] [spawn_entity]: Spawn Entity started
+[spawn_entity.py-9] [INFO] [1782164236.519297900] [spawn_entity]: Loading entity published on topic robot_description
+[spawn_entity.py-7] [INFO] [1782164236.520573441] [spawn_entity]: Spawn Entity started
+[spawn_entity.py-9] [INFO] [1782164236.520755211] [spawn_entity]: Waiting for entity xml on robot_description
+[spawn_entity.py-7] [INFO] [1782164236.520838035] [spawn_entity]: Loading entity XML from file /ros2_ws/install/scara_robot_pkg/share/scara_robot_pkg/urdf/pedestal.urdf
+[spawn_entity.py-7] [INFO] [1782164236.521244344] [spawn_entity]: Waiting for service /spawn_entity, timeout = 120
+[spawn_entity.py-7] [INFO] [1782164236.521416666] [spawn_entity]: Waiting for service /spawn_entity
+[spawn_entity.py-9] [INFO] [1782164236.531345391] [spawn_entity]: Waiting for service /spawn_entity, timeout = 120
+[spawn_entity.py-9] [INFO] [1782164236.531488698] [spawn_entity]: Waiting for service /spawn_entity
+[gzserver-1] amdgpu: os_same_file_description couldn't determine if two DRM fds reference the same file description.
+[gzserver-1] If they do, bad things may happen!
+[gzserver-1] amdgpu: unknown (family_id, chip_external_rev): (150, 20)
+[gzserver-1] libGL error: glx: failed to create dri3 screen
+[gzserver-1] libGL error: failed to load driver: radeonsi
+[gzclient-2] amdgpu: os_same_file_description couldn't determine if two DRM fds reference the same file description.
+[gzclient-2] If they do, bad things may happen!
+[gzclient-2] amdgpu: unknown (family_id, chip_external_rev): (150, 20)
+[gzclient-2] libGL error: glx: failed to create dri3 screen
+[gzclient-2] libGL error: failed to load driver: radeonsi
+[gzclient-2] amdgpu: os_same_file_description couldn't determine if two DRM fds reference the same file description.
+[gzclient-2] If they do, bad things may happen!
+[gzclient-2] amdgpu: unknown (family_id, chip_external_rev): (150, 20)
+[gzclient-2] libGL error: glx: failed to create dri3 screen
+[gzclient-2] libGL error: failed to load driver: radeonsi
+[INFO] [rviz2-11]: process started with pid [4335]
+[rviz2-11] QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-root'
+[rviz2-11] amdgpu: os_same_file_description couldn't determine if two DRM fds reference the same file description.
+[rviz2-11] If they do, bad things may happen!
+[rviz2-11] amdgpu: unknown (family_id, chip_external_rev): (150, 20)
+[rviz2-11] libGL error: glx: failed to create dri3 screen
+[rviz2-11] libGL error: failed to load driver: radeonsi
+[rviz2-11] amdgpu: os_same_file_description couldn't determine if two DRM fds reference the same file description.
+[rviz2-11] If they do, bad things may happen!
+[rviz2-11] amdgpu: unknown (family_id, chip_external_rev): (150, 20)
+[rviz2-11] libGL error: glx: failed to create dri3 screen
+[rviz2-11] libGL error: failed to load driver: radeonsi
+[rviz2-11] [INFO] [1782164244.736291522] [rviz2]: Stereo is NOT SUPPORTED
+[rviz2-11] [INFO] [1782164244.736388904] [rviz2]: OpenGl version: 4.5 (GLSL 4.5)
+[rviz2-11] [INFO] [1782164244.776940147] [rviz2]: Stereo is NOT SUPPORTED
+[rviz2-11] Warning: class_loader.impl: SEVERE WARNING!!! A namespace collision has occurred with plugin factory for class rviz_default_plugins::displays::InteractiveMarkerDisplay. New factory will OVERWRITE existing one. This situation occurs when libraries containing plugins are directly linked against an executable (the one running right now generating this message). Please separate plugins out into their own library or just don't link against the library and use either class_loader::ClassLoader/MultiLibraryClassLoader to open.
+[rviz2-11]          at line 253 in /opt/ros/humble/include/class_loader/class_loader/class_loader_core.hpp
+[INFO] [scene_publisher-12]: process started with pid [4396]
+[INFO] [sonar_belt_stopper-13]: process started with pid [4398]
+[INFO] [scene_publisher-14]: process started with pid [4400]
+[sonar_belt_stopper-13] [INFO] [1782164245.446655800] [sonar_belt_stopper]: SonarBeltStopper started. Threshold: 0.049 m, cooldown: 10.0 s
+[scene_publisher-12] [INFO] [1782164245.461780937] [scene_publisher]: Published static collision objects (pedestal + 2 conveyors)
+[scene_publisher-14] [INFO] [1782164245.461816613] [scene_publisher]: Published static collision objects (pedestal + 2 conveyors)
+[scene_publisher-12] [INFO] [1782164245.800847581] [scene_publisher]: PCB mesh loaded: 38840 triangles
+[scene_publisher-12] [INFO] [1782164245.803531381] [scene_publisher]: Scene publisher ready – frame=world, tracking ['pcb1', 'chip1'] @ 5.0 Hz
+[scene_publisher-14] [INFO] [1782164245.818020590] [scene_publisher]: PCB mesh loaded: 38840 triangles
+[scene_publisher-14] [INFO] [1782164245.820123196] [scene_publisher]: Scene publisher ready – frame=world, tracking ['pcb1', 'chip1'] @ 5.0 Hz
+[INFO] [sonar_belt_stopper-15]: process started with pid [4432]
+[sonar_belt_stopper-15] [INFO] [1782164246.981252558] [sonar_belt_stopper]: SonarBeltStopper started. Threshold: 0.049 m, cooldown: 10.0 s
+[rviz2-11] [ERROR] [1782164247.840970866] [moveit_ros_visualization.motion_planning_frame]: Action server: /recognize_objects not available
+[rviz2-11] [INFO] [1782164247.853219052] [moveit_ros_visualization.motion_planning_frame]: MoveGroup namespace changed: / -> . Reloading params.
+[rviz2-11] [INFO] [1782164248.075670111] [moveit_rdf_loader.rdf_loader]: Loaded robot model in 0 seconds
+[rviz2-11] [INFO] [1782164248.075719553] [moveit_robot_model.robot_model]: Loading robot model 'combined_cell'...
+[rviz2-11] [INFO] [1782164248.075730423] [moveit_robot_model.robot_model]: No root/virtual joint specified in SRDF. Assuming fixed joint
+[rviz2-11] [INFO] [1782164248.092991588] [moveit_cached_ik_kinematics_plugin.cached_ik_kinematics_plugin]: cache file /ros2_ws/combined_cellscara_arm_base_linkLink_4_5000_1.000000_1.000000.ikcache initialized!
+[rviz2-11] [INFO] [1782164248.150046613] [moveit_ros.planning_scene_monitor.planning_scene_monitor]: Starting planning scene monitor
+[rviz2-11] [INFO] [1782164248.150909443] [moveit_ros.planning_scene_monitor.planning_scene_monitor]: Listening to '/monitored_planning_scene'
+[rviz2-11] [INFO] [1782164248.170685553] [interactive_marker_display_104541110092656]: Connected on namespace: /rviz_moveit_motion_planning_display/robot_interaction_interactive_marker_topic
+[rviz2-11] [INFO] [1782164248.178382362] [moveit_ros_visualization.motion_planning_frame]: group bobby_arm
+[rviz2-11] [INFO] [1782164248.178416566] [moveit_ros_visualization.motion_planning_frame]: Constructing new MoveGroup connection for group 'bobby_arm' in namespace ''
+[rviz2-11] [INFO] [1782164248.186310503] [move_group_interface]: Ready to take commands for planning group bobby_arm.
+[rviz2-11] [INFO] [1782164248.187286334] [moveit_ros_visualization.motion_planning_frame]: group bobby_arm
+[INFO] [ros2-16]: process started with pid [4453]
+[rviz2-11] [INFO] [1782164248.274987522] [interactive_marker_display_104541110092656]: Sending request for interactive markers
+[ros2-16] No executable found
+[ERROR] [ros2-16]: process has died [pid 4453, exit code 1, cmd 'ros2 run ros2_conveyorbelt SpawnObject.py --package conveyorbelt_gazebo --urdf pcb.urdf --name pcb1 --x 0.0 --y -0.5 --z 1.2'].
+[rviz2-11] [INFO] [1782164248.306489052] [interactive_marker_display_104541110092656]: Service response received for initialization
+[INFO] [ros2-17]: process started with pid [4459]
+[ros2-17] No executable found
+[ERROR] [ros2-17]: process has died [pid 4459, exit code 1, cmd 'ros2 run ros2_conveyorbelt SpawnObject.py --package conveyorbelt_gazebo --urdf chip.urdf --name chip1 --x -1.3 --y -1.0 --z 1.2'].
+[INFO] [pick_place_cycle-18]: process started with pid [4475]
+[pick_place_cycle-18] [ERROR] [1782164260.807423093] [pick_place_cycle]: Service not available: /CONVEYORPOWER
+[pick_place_cycle-18] Traceback (most recent call last):
+[pick_place_cycle-18]   File "/ros2_ws/install/scara_robot_pkg/lib/scara_robot_pkg/pick_place_cycle", line 33, in <module>
+[pick_place_cycle-18]     sys.exit(load_entry_point('scara-robot-pkg', 'console_scripts', 'pick_place_cycle')())
+[pick_place_cycle-18]   File "/ros2_ws/build/scara_robot_pkg/scara_robot_pkg/pick_place_cycle.py", line 219, in main
+[pick_place_cycle-18]     node.run_cycle()
+[pick_place_cycle-18]   File "/ros2_ws/build/scara_robot_pkg/scara_robot_pkg/pick_place_cycle.py", line 183, in run_cycle
+[pick_place_cycle-18]     self._wait_for_services()
+[pick_place_cycle-18]   File "/ros2_ws/build/scara_robot_pkg/scara_robot_pkg/pick_place_cycle.py", line 81, in _wait_for_services
+[pick_place_cycle-18]     raise RuntimeError(f'Service not available: {name}')
+[pick_place_cycle-18] RuntimeError: Service not available: /CONVEYORPOWER
+[ERROR] [pick_place_cycle-18]: process has died [pid 4475, exit code 1, cmd '/ros2_ws/install/scara_robot_pkg/lib/scara_robot_pkg/pick_place_cycle --ros-args --params-file /tmp/launch_params_kwy0awq5'].
